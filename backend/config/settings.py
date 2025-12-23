@@ -87,12 +87,8 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # ======================
 DATABASES = {
     'default': {
-        'ENGINE': 'mysql.connector.django',
-        'NAME': 'MovieDB',          # your DB name
-        'USER': 'root',             # your DB username
-        'PASSWORD': 'your_password',# your DB password
-        'HOST': 'localhost',
-        'PORT': '3306',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -140,6 +136,8 @@ STATIC_URL = 'static/'
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5181",
     "http://127.0.0.1:5181",
+    "http://localhost:5173",
+    "http://127.0.0.1:5173",
 ]
 
 CORS_ALLOW_HEADERS = [
