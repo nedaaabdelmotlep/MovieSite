@@ -1,67 +1,57 @@
+/* Design tokens */
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
-
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  --bg: #0b0f14;
+  --text: rgba(255, 255, 255, 0.92);
+  --muted: rgba(255, 255, 255, 0.64);
+  --card: #11161d;
+  --border: rgba(255, 255, 255, 0.08);
+  --accent: #00e6e6;
+  --accent-2: #00ffff;
+  --danger: #ff4d4d;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
-}
-
+/* Reset / base */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { height: 100%; }
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  /* Global background image from public folder */
+  background: var(--bg);
+  background-image: url("/New movies top magnificence.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
+h1, h2, h3, h4 { margin: 0 0 0.5rem; line-height: 1.2; }
+p { margin: 0 0 1rem; color: var(--muted); }
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
 
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
-}
+/* Simple neon helpers */
+.neon-text { color: var(--accent); text-shadow: 0 0 8px var(--accent); }
+.neon-border { border-color: var(--accent); box-shadow: 0 0 12px rgba(0,230,230,0.4); }
+
+/* Shared UI */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 16px; }
 
 button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  background-color: #141a22;
+  color: var(--text);
   cursor: pointer;
-  transition: border-color 0.25s;
+  transition: all 0.2s ease;
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
-}
+button:hover { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,230,230,0.1); }
+button:disabled { opacity: 0.6; cursor: not-allowed; }

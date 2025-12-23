@@ -1,30 +1,22 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useAuthStore } from "../store/auth";
 import "./Profile.css";
 
 export default function Profile() {
   const navigate = useNavigate();
-  const [user, setUser] = useState(null);
+  const { user, logout } = useAuthStore();
+  const [ready, setReady] = useState(false);
 
   useEffect(() => {
-    const raw = localStorage.getItem("user");
-    if (!raw) {
+    if (!user) {
       navigate("/login");
       return;
     }
-    try {
-      setUser(JSON.parse(raw));
-    } catch {
-      navigate("/login");
-    }
-  }, [navigate]);
+    setReady(true);
+  }, [navigate, user]);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    navigate("/login");
-  };
-
-  if (!user) return null;
+  if (!ready) return null;
 
   return (
     <div className="profile-container">
@@ -32,9 +24,9 @@ export default function Profile() {
         <h2>Welcome, {user.username} 👋</h2>
         <p>This is your profile page.</p>
 
-        <button onClick={handleLogout}>Logout</button>
+        <button className="btn btn-secondary" onClick={() => { logout(); navigate("/login"); }}>Logout</button>
 
-        <Link to="/" className="home-link">
+        <Link to="/" className="btn btn-ghost home-link">
           Back to Home
         </Link>
       </div>

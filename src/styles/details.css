@@ -1,0 +1,10 @@
+/* Movie details view */
+.movie-details .hero { display: flex; gap: 24px; align-items: flex-start; }
+.movie-details .hero img { width: 280px; flex: 0 0 280px; border-radius: 12px; border: 1px solid var(--border); }
+.movie-details h2 { margin: 0 0 8px; }
+.movie-details p { margin: 0 0 12px; }
+
+@media (max-width: 768px) {
+  .movie-details .hero { flex-direction: column; }
+  .movie-details .hero img { width: 100%; flex: none; }
+}
