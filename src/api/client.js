@@ -16,7 +16,12 @@ api.interceptors.request.use((config) => {
   try {
     // Access token from store if available
     const token = useAuthStore.getState().token;
-    if (token) {
+    // Only attach Authorization for our own API calls (not external like OMDb)
+    const url = config.url || "";
+    const isAbsolute = /^https?:\/\//i.test(url);
+    const isOurApi = !isAbsolute || (baseURL && typeof url === "string" && url.startsWith(baseURL));
+
+    if (token && isOurApi) {
       config.headers = config.headers || {};
       config.headers.Authorization = `Bearer ${token}`;
     }
