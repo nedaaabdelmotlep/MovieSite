@@ -1,0 +1,5 @@
+/* App layout containers */
+.app-layout { min-height: 100vh; display: grid; grid-template-rows: auto 1fr auto; }
+.app-main { max-width: 1200px; margin: 0 auto; padding: 24px 16px; }
+.app-main--no-header { padding-top: 48px; /* extra rhythm when header hidden (login) */ }
+.app-footer { opacity: 0.65; font-size: 0.9rem; padding: 24px 16px; text-align: center; }
