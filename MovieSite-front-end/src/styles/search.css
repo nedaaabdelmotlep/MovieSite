@@ -1,0 +1,8 @@
+/* Search layout */
+.search-page { display: flex; flex-direction: column; align-items: center; padding: 24px 0; }
+.search-card { width: 100%; max-width: 640px; padding: 16px; border-radius: 14px; border: 1px solid var(--border); background: rgba(17,22,29,0.55); backdrop-filter: blur(8px); box-shadow: 0 10px 30px rgba(0,0,0,0.25); margin-bottom: 10px; }
+.search-status { margin: 6px 0 14px; color: var(--muted); }
+
+/* Search input */
+.search-input { width: 100%; max-width: 560px; padding: 10px 14px; border-radius: 10px; border: 1px solid var(--border); background: rgba(255,255,255,0.06); color: inherit; margin: 8px 0 16px 0; }
+.search-input:focus { outline: none; border-color: var(--accent); box-shadow: 0 0 0 3px rgba(0,230,230,0.14); }
