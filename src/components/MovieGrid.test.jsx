@@ -1,6 +1,7 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, it, expect, vi } from 'vitest';
+import { MemoryRouter } from 'react-router-dom';
 import MovieGrid from './MovieGrid';
 
 describe('MovieGrid', () => {
@@ -15,7 +16,11 @@ describe('MovieGrid', () => {
       { id: 'tt2', title: 'B', poster: '', year: '2001', rating: 8.0, inWatchlist: true },
     ];
     const onToggleWatchlist = vi.fn();
-    render(<MovieGrid movies={movies} onToggleWatchlist={onToggleWatchlist} />);
+    render(
+      <MemoryRouter>
+        <MovieGrid movies={movies} onToggleWatchlist={onToggleWatchlist} />
+      </MemoryRouter>
+    );
     const buttons = screen.getAllByRole('button');
     expect(buttons).toHaveLength(2);
     await userEvent.click(buttons[0]);

@@ -5,7 +5,9 @@ export default function MovieCard({ movie, onToggleWatchlist }) {
   return (
     <div className="movie-card" data-id={id}>
       <Link to={`/movies/${id}`}>
-        <img src={poster} alt={`${title} poster`} loading="lazy" />
+        {poster ? (
+          <img src={poster} alt={`${title} poster`} loading="lazy" />
+        ) : null}
       </Link>
       <div className="movie-meta">
         <h4>

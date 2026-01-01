@@ -22,5 +22,5 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Run tests (CI subset)
-        run: npm run test:ci
+      - name: Run full test suite (Vitest)
+        run: npm run test:all

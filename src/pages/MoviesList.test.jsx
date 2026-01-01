@@ -38,7 +38,7 @@ describe('MoviesList page', () => {
 
     // Shows loading skeleton initially
     expect(screen.getByText(/browse movies/i)).toBeInTheDocument();
-    expect(screen.getByText(/no movies found/i)).not.toBeInTheDocument();
+    expect(screen.queryByText(/no movies found/i)).not.toBeInTheDocument();
 
     // Wait for first load
     await waitFor(() => {
