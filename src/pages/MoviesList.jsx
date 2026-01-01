@@ -38,7 +38,7 @@ export default function MoviesList() {
   return (
     <section className="movies-page">
       <h2>Browse Movies</h2>
-      {loading && <Skeleton rows={8} />}
+      {loading && <Skeleton rows={80} />}
       {error && <p className="error-text">{error}</p>}
       {!loading && !error && (
         <>
