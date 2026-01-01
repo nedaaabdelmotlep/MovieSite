@@ -18,6 +18,8 @@ If you are developing a production application, we recommend using TypeScript wi
 =======
 # MooNSine Frontend (React + Vite)
 
+![CI](https://github.com/nedaaabdelmotlep/MovieSite/actions/workflows/ci.yml/badge.svg?branch=front-end)
+
 Frontend for a movie site with authentication, browsing, search, details, and watchlist.
 
 ## Quick Start
@@ -72,9 +74,15 @@ Install if you want tests:
 npm install -D vitest @testing-library/react @testing-library/user-event jsdom
 ```
 
-Run:
+Run all tests:
 
 ```cmd
-npm run test
+npm run test:all
+```
+
+CI subset (API tests only, used by GitHub Actions):
+
+```cmd
+npm run test:ci
 ```
 >>>>>>> b06f674 (Temporary commit: my local frontend work)

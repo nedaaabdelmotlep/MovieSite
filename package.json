@@ -8,7 +8,9 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "test": "vitest"
+    "test": "vitest",
+    "test:all": "vitest --run --reporter=verbose",
+    "test:ci": "vitest --run --reporter=verbose src/api/movies.test.js"
   },
   "dependencies": {
     "react": "^19.1.1",
